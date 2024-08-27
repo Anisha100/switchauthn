@@ -1,18 +1,18 @@
-from flask import Flask, request, render_template
+#from flask import Flask, request, render_template
 import requests
 import hmac
 import hashlib
 import socket
 from time import sleep
 
-app=Flask(__name__)
-
-@app.route('/', methods=['GET'])
+#app=Flask(__name__)
+key=input("KEY")
+#@app.route('/', methods=['GET'])
 def get_key():
-	if request.method == 'GET':
+#	if request.method == 'GET':
 	
 		#k2 received
-		key=request.args.get("key")
+#		key=request.args.get("key")
 		
 		#challenge generated
 		challenge=requests.get("https://www.uuidgenerator.net/api/version1")
@@ -20,7 +20,7 @@ def get_key():
 		#challenge broadcasted
 		interfaces = socket.getaddrinfo(host=socket.gethostname(), port=None, family=socket.AF_INET)
 		allips = [ip[-1][0] for ip in interfaces]
-		msq=challenge
+		msg=challenge
 		while True:
 			for ip in allips:
 				print(f'sending on {ip}')
@@ -45,7 +45,7 @@ def get_key():
 		
 
 
-	return render_template("admin.html")
+	#return render_template("admin.html")
 	
 def hmac_sha256(key, message):
   return hmac.new(
@@ -55,9 +55,9 @@ def hmac_sha256(key, message):
   ).hexdigest()
   
 
-
-if __name__ == '__main__':
-	app.run()
+get_key()
+#if __name__ == '__main__':
+#	app.run()
 		
 		
 		
