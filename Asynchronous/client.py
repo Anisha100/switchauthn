@@ -25,10 +25,11 @@ def get_ch():
 	msg=signed
 	print(f'sending on {msg}')
 	mac = get_mac()
+	mac=':'.join(("%012X" % mac)[i:i+2] for i in range(0, 12, 2))
 
 	while True:
 			print(msg.encode(),len(msg))
-			sock.sendto(msg.encode(), ("192.168.29.255", 5005),mac)
+			sock.sendto(msg.encode(), ("192.168.29.255", 5005),mac.encode())
 			time.sleep(1)
 	sock.close()
 		
