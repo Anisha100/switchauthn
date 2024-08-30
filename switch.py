@@ -24,12 +24,12 @@ def get_key():
         
         #challenge generated
         #challenge=requests.get("https://www.uuidgenerator.net/api/version1")
-        challenge=str(uuid.uuid4()).encode('utf-8')
+        msg=str(uuid.uuid4()).encode('utf-8')
         
         #challenge broadcasted
         #interfaces = socket.getaddrinfo(host=socket.gethostname(), port=None, family=socket.AF_INET)
         ip = '192.168.29.248'
-        msg=challenge.content
+        #msg=challenge.content
         print(f'sending on {ip}')
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)  # UDP
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
