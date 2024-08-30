@@ -34,7 +34,7 @@ def receive():
                     print(f'The received chslleneg is : {ck1} and received challenge is {signed}')
                     print("verified")
                     break
-        else:
+             else:
                     print(f'signed challenge from client is {ck1} and signed challenge in server is {signed}')
 
     
