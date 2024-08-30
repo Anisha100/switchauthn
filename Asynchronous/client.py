@@ -25,7 +25,7 @@ def get_ch():
 
 	while True:
 			print(msg.encode(),len(msg))
-			sock.sendto(msg.encode(), ("192.168.29.255", 6005))
+			sock.sendto(msg.encode(), ("192.168.29.255", 5005))
 			time.sleep(1)
 	sock.close()
 		
