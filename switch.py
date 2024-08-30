@@ -52,6 +52,7 @@ def get_key():
             try:
                 ck1, addr = sock.recvfrom(1024)
                 if(ck1==signed):
+                    print(f'The IP ADDRESS of client = {addr}')
                     print(f'The received chslleneg is : {ck1} and received challenge is {signed}')
                     print("verified")
                 else:
