@@ -5,6 +5,7 @@ import hashlib
 import socket
 from time import sleep
 import time
+import uuid
 #import threading
 
 #app=Flask(__name__)
@@ -22,7 +23,8 @@ def get_key():
 #        key=request.args.get("key")
         
         #challenge generated
-        challenge=requests.get("https://www.uuidgenerator.net/api/version1")
+        #challenge=requests.get("https://www.uuidgenerator.net/api/version1")
+        challenge=str(uuid.uuid4()).encode('utf-8')
         
         #challenge broadcasted
         #interfaces = socket.getaddrinfo(host=socket.gethostname(), port=None, family=socket.AF_INET)
