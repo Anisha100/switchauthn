@@ -20,14 +20,9 @@ def get_ch():
 	print(signed)
 	
 	#broadcast CK1
-	#interfaces = socket.getaddrinfo(host=socket.gethostname(), port=None, family=socket.AF_INET)
-	#allips = [ip[-1][0] for ip in interfaces]
 	msg=signed
 	print(f'sending on {msg}')
-	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)  # UDP
-	sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-	sock.bind(('',6005))
-	#sock.settimeout(10)
+
 	while True:
 			print(msg.encode(),len(msg))
 			sock.sendto(msg.encode(), ("192.168.29.255", 6005))
