@@ -28,9 +28,9 @@ def receive():
         
         #receiving CK1
         while True:  
-             ck1, addr = sock.recvfrom(1024)
+             ck1, addr,mac = sock.recvfrom(1024)
              if(ck1==signed):
-                    print(f'The IP ADDRESS of client with verified challange : {addr}')
+                    print(f'The MAC ADDRESS of client with verified challange : {mac}')
                     print(f'The received chslleneg is : {ck1} and received challenge is {signed}')
                     print("verified")
                     break
