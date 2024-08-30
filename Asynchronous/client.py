@@ -4,6 +4,8 @@ import hashlib
 import socket
 from time import sleep
 import time
+from uuid import getnode as get_mac
+
 key=input("key")
 challenge=''	
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM,socket.IPPROTO_UDP)
@@ -22,10 +24,11 @@ def get_ch():
 	#broadcast CK1
 	msg=signed
 	print(f'sending on {msg}')
+	mac = get_mac()
 
 	while True:
 			print(msg.encode(),len(msg))
-			sock.sendto(msg.encode(), ("192.168.29.255", 5005))
+			sock.sendto(msg.encode(), ("192.168.29.255", 5005),mac)
 			time.sleep(1)
 	sock.close()
 		
