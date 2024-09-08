@@ -36,7 +36,7 @@ def get_key():
         sock.bind(('',5005))
         #sock.settimeout(10)
         print(msg,len(msg))
-        sock.sendto(msg, ("192.168.29.255", 5005))
+        sock.sendto(msg, (ip, 5005))
 #        time.sleep(10)
         sock.close()
 #def receive():
