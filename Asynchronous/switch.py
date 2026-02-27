@@ -1,4 +1,3 @@
-import requests
 import hmac
 import hashlib
 import socket
@@ -49,7 +48,7 @@ t1=threading.Thread(target=get_key)
 t2=threading.Thread(target=receive)
 t1.start()
 t2.start()
-get_key()
+
 
 
 #if __name__ == '__main__':
